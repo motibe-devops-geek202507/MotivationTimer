@@ -1,14 +1,20 @@
-
-import './App.css'
+import React from 'react';
+import './index.css';
+import Home from './pages/Home';
+import Timer from './pages/Timer';
+import Login from './pages/Login';
+import { Link, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="container mt-5">
-      <h1 className="text-primary">Hello Bootstrap with Vite!</h1>
-      <button className="btn btn-success">Click Me</button>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/timer" element={<Timer />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }
 
-
-export default App
+export default App;
