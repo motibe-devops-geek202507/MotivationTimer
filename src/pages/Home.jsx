@@ -7,7 +7,7 @@ const Home = () => {
     <div className="container py-4 px-3 mx-auto">
       <h1 className="text-primary">Home</h1>
       <button className="btn btn-primary" onClick={() => navigate('/Login')}>
-        ログイン・アカウント作成へ
+        Sign in
       </button>
 
       <Link to="/register">Go to Register Page</Link>
