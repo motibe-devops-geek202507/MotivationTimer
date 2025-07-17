@@ -45,8 +45,7 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="container flex">
         <div>
           <label>Email</label>
           <input
