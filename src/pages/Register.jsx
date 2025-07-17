@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Cookies from 'js-cookie';
+import { UserContext } from '../context/UserContext';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,13 +35,13 @@ const Register = () => {
 
       if (response.ok) {
         console.log('Registration successful:', data);
-        // Here you would typically save the token and user data
-        // and redirect the user.
         Cookies.set('access_token', data.access_token, {
           expires: 7,
           secure: true,
           sameSite: 'strict',
         });
+        localStorage.setItem('user', JSON.stringify(data.user));
+        setUser(data.user);
         window.location.href = '/';
       } else {
         console.error('Registration failed:', data);
