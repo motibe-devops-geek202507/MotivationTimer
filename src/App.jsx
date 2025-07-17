@@ -1,9 +1,8 @@
 import React from 'react';
-import './index.css';
 import Home from './pages/Home';
 import Timer from './pages/Timer';
 import Login from './pages/Login';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
