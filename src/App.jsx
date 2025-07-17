@@ -4,6 +4,7 @@ import Timer from './pages/Timer';
 import Login from './pages/Login';
 import { Routes, Route } from 'react-router-dom';
 import Register from './pages/Register';
+import TimerLog from './pages/TimerLog';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/timer" element={<Timer />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/timer-log" element={<TimerLog />} />
       </Routes>
     </div>
   );
