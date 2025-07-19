@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Home from './pages/Home';
 import Timer from './pages/Timer';
 import Login from './pages/Login';
 import { Routes, Route } from 'react-router-dom';
@@ -10,6 +9,7 @@ import TopPage from './pages/TopPage';
 import LoginModal from './components/Modal/LoginModal';
 import RegisterModal from './components/Modal/RegisterModal';
 import ErrorModal from './components/Modal/ErrorModal';
+import Header from './components/Header';
 
 import { fetchCurrentUser, handleLogin, handleRegister  } from "./apiHandlers";
 
@@ -22,6 +22,7 @@ function App() {
   }, []);
   return (
     <div>
+      <Header />
       <Routes>
         <Route path="/" element={<TopPage />} />
         <Route path="/timer" element={<Timer />} />
