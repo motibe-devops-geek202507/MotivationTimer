@@ -1,0 +1,49 @@
+/* Summaryコンポーネント専用のスタイリング */
+.summary-page {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ffffff; 
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* アニメーション用のCanvas */
+#confetti-canvas {
+    position: fixed;
+    top: 64px; /* Headerの高さ分下に配置 */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 64px); /* Headerの高さを除いた高さ */
+    z-index: 1; /* テキストの背面に配置 */
+}
+
+/* メッセージ用コンテナ */
+.message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 64px); /* Headerの高さを除いた高さ */
+    position: relative;
+    z-index: 2; /* テキストを前面に配置 */
+}
+
+/* メッセージテキスト */
+h1 {
+    font-size: 5vw; /* レスポンシブなフォントサイズ */
+    color: #333;
+    font-weight: 700;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(5px); /* すりガラス効果 */
+}
+
+/* 小さい画面用のレスポンシブ調整 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 8vw;
+    }
+}
