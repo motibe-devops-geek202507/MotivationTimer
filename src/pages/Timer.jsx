@@ -2,46 +2,67 @@ import React, { useState, useEffect } from 'react';
 import Timer from '../components/Timer/Timer';
 import Summary from '../components/Timer/Summary';
 import InitialFormModal from '../components/Timer/InitialFormModal';
+// import { postTimerLog } from '../apiHandlers';
+import Cookies from 'js-cookie';
 
 const TimerPage = () => {
   const [studyInfo, setStudyInfo] = useState(null);
   const [isFinished, setIsFinished] = useState(false);
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
 
   const handleFinish = () => {
-    setIsFinished(true);
     if (!isFinished) {
-      setIsFinished(true);
+      setTimeout(() => setIsFinished(true), 0);
+    }
+  };
+
+  const postTimerLog = async (studyInfo, setErrorMsg) => {
+    const token = Cookies.get('access_token');
+    if (!token) {
+      setErrorMsg('認証トークンがありません。ログインしてください。');
+      return;
+    }
+
+    const payload = {
+      user_id: user.id,
+      name: user.name,
+      description: studyInfo.subject,
+      timer_time: studyInfo.minutes * 60,
+    };
+    console.log(payload);
+
+    try {
+      const res = await fetch(
+        'https://motivationtimer-x-oshi.onrender.com/api/add-timer-log',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error('タイマーの送信に失敗しました');
+      }
+
+      const data = await res.json();
+      console.log('送信成功:', data);
+    } catch (err) {
+      setErrorMsg(err.message);
     }
   };
 
   useEffect(() => {
     if (isFinished && studyInfo) {
-      const userId = localStorage.getItem('user_id');
-      const name = localStorage.getItem('name');
-      const payload = {
-        user_id: userId,
-        name: name,
-        description: studyInfo.description,
-        timer_time: String(Number(studyInfo.time) * 60),
-      };
-
-      fetch('https://motivationtimer-x-oshi.onrender.com/api/add-timer-log', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      })
-        .then((response) => {
-          if (!response.ok) throw new Error('送信に失敗しました');
-          return response.json();
-        })
-        .then((data) => {
-          console.log('送信成功:', data);
-        })
-        .catch((error) => {
-          console.error('送信エラー:', error);
-        });
+      console.log(studyInfo);
+      postTimerLog(studyInfo, (msg) => {
+        console.error(msg);
+        // 必要なら画面にエラー表示する処理をここに
+      });
     }
   }, [isFinished, studyInfo]);
 
