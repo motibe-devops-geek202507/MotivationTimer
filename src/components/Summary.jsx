@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import '../assets/Summary.css';
 import { useNavigate } from 'react-router-dom';
 
-const Summary = () => {
+const Summary = ({ studyInfo }) => {
     const navigate = useNavigate();
     // canvas要素への参照を作成
     const canvasRef = useRef(null);
@@ -132,6 +132,7 @@ const Summary = () => {
         <div className="summary-page">
             <div className="message-container">
                 <div className="text-center">
+                    <p>{studyInfo.subject}の学習が終了しました。</p>
                     <h1>お疲れ様でした</h1>
                     <button className="btn btn-dark btn-lg mt-3" onClick={() => navigate('/mypage')}>
                         Back to Home
