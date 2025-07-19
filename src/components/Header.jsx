@@ -7,6 +7,7 @@ const Header = () => {
   const navigate = useNavigate()
 
   return (
+
     <header className="bg-black text-white py-4">
       <div className="container mx-auto px-4">
         <div className="d-flex justify-content-between align-items-center">
