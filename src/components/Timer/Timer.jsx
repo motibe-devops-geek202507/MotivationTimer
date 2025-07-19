@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import quotesObject from '../../quotes.js';
 import { FiRefreshCw } from 'react-icons/fi';
+import '../../assets/Timer.css';
 
 const Timer = ({ onFinish, studyInfo }) => {
   const navigate = useNavigate();
@@ -81,9 +82,7 @@ const Timer = ({ onFinish, studyInfo }) => {
           reset
         </button>
       </div>
-      <h1 className="fw-bold my-4" style={{ fontSize: '7rem' }}>
-        {formatTime(seconds)}
-      </h1>
+      <h1 className="fw-bold my-4 timer-display">{formatTime(seconds)}</h1>
       <div className="text-muted mb-4">
         <div>
           task: <span className="fw-medium">{studyInfo.subject}</span>
@@ -92,7 +91,7 @@ const Timer = ({ onFinish, studyInfo }) => {
           time: <span className="fw-medium">{studyInfo.minutes} min</span>
         </div>
       </div>
-      <div className="fs-3 mt-5">
+      <div className="fs-3 mt-5 quote-display">
         <p
           className="fw-bold my-1"
           style={{ fontFamily: `'Sawarabi Mincho', serif` }}
@@ -116,8 +115,6 @@ const Timer = ({ onFinish, studyInfo }) => {
         </button>
       </div>
 
-      
-
       <div className="fs-3 mt-5">
         <button
           onClick={() => {
@@ -128,6 +125,12 @@ const Timer = ({ onFinish, studyInfo }) => {
           Back to Home
         </button>
       </div>
+      <button
+        onClick={() => setSeconds(1)}
+        className="btn btn-warning btn-sm mt-2"
+      >
+        残り1秒にする（デバッグ用）
+      </button>
     </div>
   );
 };

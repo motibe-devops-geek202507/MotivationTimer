@@ -1,0 +1,27 @@
+.timer-display {
+    font-size: 6rem;
+  }
+  
+  .quote-display p {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .timer-display {
+      font-size: 4rem;
+    }
+  
+    .quote-display p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .timer-display {
+      font-size: 2.5rem;
+    }
+  
+    .quote-display p {
+      font-size: 1rem;
+    }
+  }
