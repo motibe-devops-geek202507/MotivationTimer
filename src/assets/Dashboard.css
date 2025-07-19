@@ -1,0 +1,46 @@
+/* Dashboard.css */
+
+/* カードのスタイル */
+.stat-card {
+    border: none;
+    border-radius: 0.75rem;
+}
+
+/* グラフの棒の色 */
+.chart-bar-item {
+    background-color: #cacaca; /* limegreen */
+    border-radius: 6px 6px 0 0;
+    width: 50%;
+    margin: 0 auto;
+    transition: height 0.3s ease-in-out; /* 高さが変わる際のアニメーション */
+}
+
+/* グラフのコンテナ */
+.chart-container {
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* 棒グラフを下揃えにする */
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Y軸のラベル */
+.y-axis-labels {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    padding-right: 15px;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* X軸のラベル */
+.x-axis-labels {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
