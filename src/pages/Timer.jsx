@@ -9,6 +9,9 @@ const TimerPage = () => {
 
   const handleFinish = () => {
     setIsFinished(true);
+    if (!isFinished) {
+      setIsFinished(true);
+    }
   };
 
   useEffect(() => {
@@ -19,7 +22,7 @@ const TimerPage = () => {
         user_id: userId,
         name: name,
         description: studyInfo.description,
-        timer_time: studyInfo.time * 60,
+        timer_time: String(Number(studyInfo.time) * 60),
       };
 
       fetch('https://motivationtimer-x-oshi.onrender.com/api/add-timer-log', {
