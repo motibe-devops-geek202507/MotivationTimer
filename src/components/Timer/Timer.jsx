@@ -75,6 +75,13 @@ const Timer = ({ onFinish, studyInfo }) => {
       >
         Back to Home
       </button>
+
+      <button
+        onClick={() => setSeconds(1)}
+        className="btn btn-warning btn-sm mt-2"
+      >
+        残り1秒にする（デバッグ用）
+      </button>
     </div>
   );
 };

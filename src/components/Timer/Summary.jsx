@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import '../assets/Summary.css';
+import '../../assets/Summary.css';
 import { useNavigate } from 'react-router-dom';
 
 const Summary = ({ studyInfo }) => {
