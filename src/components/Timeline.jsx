@@ -70,7 +70,7 @@ const Timeline = ({ logs }) => {
                       </p>
                     </div>
                     <div className="text-end">
-                      <span className="fs-5 fw-bold text-primary">
+                      <span className="fs-5 fw-bold text-dark">
                         {formatDuration(log.timer_time)}
                       </span>
                     </div>
