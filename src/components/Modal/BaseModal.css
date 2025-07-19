@@ -1,0 +1,70 @@
+.base-modal .modal-content {
+  background-color: #ffffff; /* 白基調 */
+  color: #000000;            /* 本文黒文字 */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 500px;
+  overflow-y: auto;
+}
+
+.base-modal .modal-header {
+  background-color: #000000; /* 見出しは黒背景 */
+  border-bottom: 1px solid #e0e0e0; /* グレーで控えめに区切る */
+  padding: 0.75rem 1rem;
+}
+
+.base-modal .modal-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ffffff; /* 見出し文字は白 */
+  margin: 0;
+}
+
+.base-modal .btn-close {
+  filter: invert(1); /* 白系に */
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.base-modal .btn-close:hover {
+  opacity: 1;
+}
+
+.base-modal .modal-body {
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000000; /* 本文文字も黒 */
+  padding: 1rem;
+}
+
+.base-modal .modal-footer {
+  border-top: 1px solid #e0e0e0; /* グレーで区切り */
+  padding: 0.75rem 1rem;
+}
+
+.base-modal .btn-primary {
+  background-color: #000000; /* 黒ボタン */
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.base-modal .btn-primary:hover {
+  background-color: #333333; /* 少し明るい黒で hover */
+}
+
+.base-modal .btn-secondary {
+  background-color: #f0f0f0;
+  border: none;
+  color: #333333;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.base-modal .btn-secondary:hover {
+  background-color: #e0e0e0;
+  color: #000000;
+}
