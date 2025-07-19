@@ -4,7 +4,7 @@ import React from "react";
 const RegisterButton = () => {
   return (
     <button
-      className="btn btn-outline-dark text-dark"
+      className="btn btn-outline-dark"
       data-bs-toggle="modal"
       data-bs-target="#registerModal"
     >

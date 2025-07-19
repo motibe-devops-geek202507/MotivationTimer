@@ -1,8 +1,8 @@
 import * as bootstrap from "bootstrap";
 import Cookies from "js-cookie";
 
-// const API_BASE = "https://motivationtimer-x-oshi.onrender.com/api";
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = "https://motivationtimer-x-oshi.onrender.com/api";
+// const API_BASE = "http://localhost:8000/api";
 
 export const fetchCurrentUser = async (setUser, setErrorMsg) => {
   const token = Cookies.get("access_token");
