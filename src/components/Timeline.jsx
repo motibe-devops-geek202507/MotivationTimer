@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import Cookies from 'js-cookie';
 
 // 日付文字列を「YYYY/MM/DD」形式にフォーマットする
 const formatDate = (dateString) => {
@@ -20,7 +21,7 @@ const formatDuration = (totalSeconds) => {
     .join(':');
 };
 
-const Timeline = ({ logs }) => {
+const Timeline = ({ logs, onDeleteLog }) => {
   // useMemoを使って、logsが変更された時だけソート処理を再実行する
   const sortedLogs = useMemo(() => {
     if (!logs || logs.length === 0) {
@@ -30,6 +31,36 @@ const Timeline = ({ logs }) => {
     return [...logs].sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   }, [logs]);
 
+  const handleDelete = async (logId) => {
+    if (window.confirm('この学習記録を削除しますか？')) {
+      try {
+        const token = Cookies.get('access_token');
+        if (!token) {
+          alert('認証トークンが見つかりません。再度ログインしてください。');
+          return;
+        }
+
+        const response = await fetch(`https://motivationtimer-x-oshi.onrender.com/api/delete-timer-log?id=${logId}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+        
+        if (response.ok) {
+          // 削除が成功した場合、親コンポーネントに通知
+          onDeleteLog(logId);
+        } else {
+          alert('削除に失敗しました。');
+        }
+      } catch (error) {
+        console.error('Error deleting timer log:', error);
+        alert('削除中にエラーが発生しました。');
+      }
+    }
+  };
+
   return (
     <div className="table-responsive">
       <table className="table table-striped table-hover align-middle">
@@ -38,6 +69,7 @@ const Timeline = ({ logs }) => {
             <th scope="col">Date</th>
             <th scope="col">Description</th>
             <th scope="col" className="text-end">Time</th>
+            <th scope="col" className="text-center">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -47,11 +79,20 @@ const Timeline = ({ logs }) => {
                 <td>{formatDate(log.created_at)}</td>
                 <td>{log.description || '学習'}</td>
                 <td className="text-end">{formatDuration(log.timer_time)}</td>
+                <td className="text-center">
+                  <button
+                    onClick={() => handleDelete(log.id)}
+                    className="btn btn-outline-danger btn-sm"
+                    title="削除"
+                  >
+                    <i className="bi bi-trash"></i>
+                  </button>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="3" className="text-center text-muted p-4">
+              <td colSpan="4" className="text-center text-muted p-4">
                 学習記録はまだありません。
               </td>
             </tr>
