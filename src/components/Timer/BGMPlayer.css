@@ -1,0 +1,39 @@
+.bgm-control {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+  
+  .volume-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px;
+    height: 100px;
+    background: gray;
+    cursor: pointer;
+    border-radius: 4px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    box-shadow: none;
+    z-index: 9999;
+    position: relative;
+  }
+  
+  .volume-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: black;
+    border: none;
+    border-radius: 50%;
+  }
+  
+  .volume-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: black;
+    border: none;
+    border-radius: 50%;
+  }

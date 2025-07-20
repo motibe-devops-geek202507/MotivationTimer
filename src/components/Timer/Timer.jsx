@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import quotesObject from '../../quotes.js';
 import { FiRefreshCw } from 'react-icons/fi';
 import '../../assets/Timer.css';
+import BGMPlayer from './BGMPlayer.jsx';
 
 const Timer = ({ onFinish, studyInfo }) => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const Timer = ({ onFinish, studyInfo }) => {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef(null);
+  const [isPlayingBGM, setIsPlayingBGM] = useState(false);
 
   const quotes = quotesObject;
 
@@ -31,6 +33,7 @@ const Timer = ({ onFinish, studyInfo }) => {
           if (prev <= 1) {
             clearInterval(intervalRef.current);
             setIsRunning(false);
+            setIsPlayingBGM(false); // BGM停止
             onFinish();
             return 0;
           }
@@ -65,7 +68,11 @@ const Timer = ({ onFinish, studyInfo }) => {
   };
 
   return (
-    <div className="container text-center py-5">
+    <div className="container text-center py-5 position-relative">
+      <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+        <BGMPlayer isPlaying={isPlayingBGM} setIsPlaying={setIsPlayingBGM} />
+      </div>
+
       <div className="mb-4">
         <button onClick={handleStart} className="btn btn-secondary btn-lg mx-2">
           start
@@ -128,7 +135,7 @@ const Timer = ({ onFinish, studyInfo }) => {
       <button
         onClick={() => setSeconds(1)}
         className="btn btn-warning btn-sm mt-2"
-        hidden={true}
+        hidden={!true}
       >
         残り1秒にする（デバッグ用）
       </button>
