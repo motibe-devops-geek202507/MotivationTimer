@@ -25,6 +25,10 @@ const MyPage = () => {
     }
   }, [user]);
 
+  const handleDeleteLog = (deletedLogId) => {
+    setLogs(prevLogs => prevLogs.filter(log => log.id !== deletedLogId));
+  };
+
   return (
     <div className="container py-5">
       <div className="row justify-content-center">
@@ -44,7 +48,7 @@ const MyPage = () => {
 
       <div className="mt-5">
         <h2 className="mb-4 fw-bold">Timeline</h2>
-        <Timeline logs={logs} />
+        <Timeline logs={logs} onDeleteLog={handleDeleteLog} />
       </div>
       </div>
       </div>
