@@ -1,0 +1,25 @@
+/* 白枠のボタン（Register） */
+.btn-outline-white {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-white:hover {
+  background-color: white;
+  color: black;
+}
+
+/* 白塗りのボタン（Login） */
+.btn-fill-white {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+
+.btn-fill-white:hover {
+  background-color: transparent;
+  color: white;
+}
