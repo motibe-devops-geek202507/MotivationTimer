@@ -94,11 +94,23 @@ const RegisterModal = ({ onRegister }) => {
       </div>
       <div className="mb-3">
         <label className="form-label">パスワード</label>
-        <input type="password" className="form-control" ref={passwordRef} required />
+        <input
+          type="password"
+          className="form-control"
+          ref={passwordRef}
+          required
+          autoComplete="new-password"
+        />
       </div>
       <div className="mb-3">
         <label className="form-label">パスワード（確認用）</label>
-        <input type="password" className="form-control" ref={passwordConfirmRef} required />
+        <input
+          type="password"
+          className="form-control"
+          ref={passwordConfirmRef}
+          required
+          autoComplete="new-password"
+        />
       </div>
 
       {/* エラーメッセージの表示 */}
