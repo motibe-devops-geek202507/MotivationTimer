@@ -67,11 +67,11 @@ const LoginModal = ({ onLogin }) => {
       <div className="mb-3">
         <label className="form-label">メールアドレス</label>
         {/* inputにはrefを接続 */}
-        <input type="email" className="form-control" ref={EmailRef} required />
+        <input type="email" className="form-control" ref={EmailRef} required autoComplete="username"/>
       </div>
       <div className="mb-3">
         <label className="form-label">パスワード</label>
-        <input type="password" className="form-control" ref={passwordRef} required />
+        <input type="password" className="form-control" ref={passwordRef} required autoComplete="current-password" />
       </div>
 
       {/* エラーメッセージの表示 */}
