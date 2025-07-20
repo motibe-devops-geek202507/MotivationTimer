@@ -90,7 +90,7 @@ const RegisterModal = ({ onRegister }) => {
       </div>
       <div className="mb-3">
         <label className="form-label">メールアドレス</label>
-        <input type="email" className="form-control" ref={emailRef} required />
+        <input type="email" className="form-control" ref={emailRef} required autoComplete="username"/>
       </div>
       <div className="mb-3">
         <label className="form-label">パスワード</label>
