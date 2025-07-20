@@ -28,7 +28,7 @@ const TopPage = () => {
            {/* アプリのプレビュー画像エリア */}
            <div
              className="bg-light rounded d-flex align-items-center justify-content-center"
-             style={{ height: '400px', border: '1px solid #dee2e6' }}
+             style={{ height: '320px', border: '1px solid #dee2e6' }}
            >
              <img src={previewImage} alt="アプリのプレビュー" className="img-fluid" style={{ maxHeight: '100%', maxWidth: '100%' }} />
            </div>
