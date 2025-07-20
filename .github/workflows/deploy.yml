@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-and-deploy:
-    if: github.repository == 'motibe-devops-geek202507/MotivationTime'
+    if: github.repository == 'motibe-devops-geek202507/MotivationTimer'
     runs-on: ubuntu-latest
 
     steps:
