@@ -4,6 +4,7 @@ import quotesObject from '../../quotes.js';
 import { FiRefreshCw } from 'react-icons/fi';
 import '../../assets/Timer.css';
 import BGMPlayer from './BGMPlayer.jsx';
+import bgmFile from '../../assets/bgm/bgm1.mp3';
 
 const Timer = ({ onFinish, studyInfo }) => {
   const navigate = useNavigate();
@@ -70,7 +71,11 @@ const Timer = ({ onFinish, studyInfo }) => {
   return (
     <div className="container text-center py-5 position-relative">
       <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
-        <BGMPlayer isPlaying={isPlayingBGM} setIsPlaying={setIsPlayingBGM} />
+        <BGMPlayer
+          isPlaying={isPlayingBGM}
+          setIsPlaying={setIsPlayingBGM}
+          src={bgmFile}
+        />
       </div>
 
       <div className="mb-4">
@@ -135,7 +140,7 @@ const Timer = ({ onFinish, studyInfo }) => {
       <button
         onClick={() => setSeconds(1)}
         className="btn btn-warning btn-sm mt-2"
-        hidden={true}
+        hidden={!true}
       >
         残り1秒にする（デバッグ用）
       </button>

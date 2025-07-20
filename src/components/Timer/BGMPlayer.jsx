@@ -1,12 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
-import bgmFile from '../../assets/bgm/bgm1.mp3';
 import { FiVolumeX, FiVolume2 } from 'react-icons/fi';
 import './BGMPlayer.css';
 
-const BGMPlayer = ({ isPlaying, setIsPlaying }) => {
+const BGMPlayer = ({ isPlaying, setIsPlaying, src }) => {
   const audioRef = useRef(null);
-  const [volume, setVolume] = useState(0.5); // 初期音量 50%
-  const [showVolume, setShowVolume] = useState(false); // ボリュームバー表示制御
+  const [volume, setVolume] = useState(0.5);
+  const [showVolume, setShowVolume] = useState(false);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -50,7 +49,7 @@ const BGMPlayer = ({ isPlaying, setIsPlaying }) => {
           />
         )}
       </div>
-      <audio ref={audioRef} src={bgmFile} loop />
+      <audio ref={audioRef} src={src} loop />
     </>
   );
 };
