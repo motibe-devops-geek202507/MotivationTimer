@@ -135,7 +135,7 @@ const Timer = ({ onFinish, studyInfo }) => {
       <button
         onClick={() => setSeconds(1)}
         className="btn btn-warning btn-sm mt-2"
-        hidden={!true}
+        hidden={true}
       >
         残り1秒にする（デバッグ用）
       </button>
